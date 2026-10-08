@@ -1,0 +1,57 @@
+{
+  "Navigation": {
+    "menu": "Menú",
+    "proteinShakes": "Batidos de Proteína",
+    "energyTeas": "Tés de Energía",
+    "acaiBowls": "Bowls de Açaí",
+    "wafflesSnacks": "Waffles y Snacks",
+    "ourStory": "Nuestra Historia",
+    "location": "Ubicación",
+    "contact": "Contacto",
+    "orderNow": "Ordenar Ahora",
+    "exploreMenu": "Explorar Menú Completo",
+    "shopProducts": "Comprar Productos"
+  },
+  "BodyScannerCTA": {
+    "freeConsultation": "Consulta 100% Gratis",
+    "titleStart": "Empieza Tu Cambio con un ",
+    "titleHighlight": "Escáner Corporal",
+    "description": "Descubre tu punto de partida. Obtén un análisis completo de tu composición corporal, incluyendo porcentaje de grasa, masa muscular y edad metabólica—completamente gratis en nuestro club.",
+    "bullet1": "Evaluación de grasa corporal y masa muscular",
+    "bullet2": "Conoce tu edad metabólica",
+    "bullet3": "Metas personalizadas para tu estilo de vida",
+    "buttonText": "Agenda Tu Escáner Gratis",
+    "scannerActive": "ESCÁNER ACTIVO",
+    "age": "Edad",
+    "muscle": "Músculo",
+    "optimal": "Óptimo",
+    "bodyFat": "Grasa Corporal",
+    "nonInvasive": "100% NO INVASIVO",
+    "duration": "3-MIN EN EL CLUB"
+  },
+  "HeroSection": {
+    "welcomeTo": "Bienvenido a",
+    "title": "SMART SNACK<br/>NUTRITION",
+    "description": "Batidos de proteína, tés de energía, bowls de açaí y snacks saludables hechos para tu estilo de vida diario en Pembroke Pines.",
+    "viewFullMenu": "Ver Menú Completo",
+    "shopProducts": "Comprar Productos"
+  },
+  "FeaturedCategories": {
+    "title": "Encuentra Tu Sabor",
+    "p1": "Desde batidos de proteína gourmet hasta tés de energía limpia, descubre qué hace de nuestro menú uno de los favoritos en Pembroke Pines. Creemos que comer saludable no debería significar sacrificar el sabor.",
+    "p2": "Nuestro menú, cuidadosamente elaborado, está diseñado para apoyar tus objetivos de bienestar mientras disfrutas de una experiencia deliciosa. Ya sea que necesites un impulso matutino, un batido de recuperación post-entrenamiento o un premio saludable.",
+    "viewMenu": "Ver Menú Completo"
+  },
+  "FeaturedProducts": {
+    "highlights": "Destacados del Menú",
+    "title": "Productos <span class=\"text-[#55C5D5]\">Exclusivos</span>",
+    "viewMenu": "Ver Menú Completo"
+  },
+  "JoinClub": {
+    "title": "Únete al <span class=\"text-[#E83C8B]\">Club</span>",
+    "p1": "Forma parte de una comunidad que celebra la salud, el bienestar y el gran sabor. Desbloquea recompensas de lealtad exclusivas, productos premium y beneficios especiales al unirte a nosotros.",
+    "p2": "Ya sea que vivas en Pembroke Pines o simplemente ames nuestra energía, regístrate para obtener beneficios de lealtad premium y mantente conectado con la familia Smart Snack.",
+    "joinBtn": "Únete al Club",
+    "badge": "Resultados Reales"
+  }
+}

@@ -3,7 +3,10 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+import { useTranslations } from 'next-intl';
+
 export function BodyScannerCTA() {
+  const t = useTranslations('BodyScannerCTA');
   return (
     <section 
       id="body-scanner"
@@ -22,23 +25,23 @@ export function BodyScannerCTA() {
           {/* Left Text Content */}
           <div className="flex-1 text-center lg:text-left space-y-6 sm:space-y-8 w-full">
             <div className="inline-flex items-center justify-center bg-white/5 text-[#55C5D5] rounded-full px-4 sm:px-5 py-1.5 sm:py-2 text-xs font-bold uppercase tracking-[0.2em] border border-white/10 shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)]">
-              100% Free Consultation
+              {t('freeConsultation')}
             </div>
             
             <div className="space-y-3 sm:space-y-4">
               <h2 id="scanner-heading" className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
-                Start Your Change with a <span className="text-[#F4C84A]">Body Scan</span>
+                {t('titleStart')} <span className="text-[#F4C84A]">{t('titleHighlight')}</span>
               </h2>
               <p className="text-[#EBF8FA]/75 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Discover your starting point. Get a comprehensive body composition analysis, including body fat percentage, muscle mass, and metabolic age—completely free in our club.
+                {t('description')}
               </p>
             </div>
 
             <ul className="space-y-3 sm:space-y-3.5 text-left inline-block max-w-md mx-auto lg:mx-0 w-full">
               {[
-                "Personalized diagnostic and biometric metrics",
-                "Nutritional baseline assessment with our wellness coaches",
-                "Actionable targets tailored to your lifestyle and routine"
+                t('bullet1'),
+                t('bullet2'),
+                t('bullet3')
               ].map((item, i) => (
                 <li key={i} className="flex items-start sm:items-center gap-3 text-[#EBF8FA]/85 text-sm sm:text-base">
                   <div className="flex-shrink-0 flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#55C5D5]/20 text-[#55C5D5] mt-0.5 sm:mt-0">
@@ -58,7 +61,7 @@ export function BodyScannerCTA() {
                   size="lg" 
                   className="w-full sm:w-auto justify-center shadow-[0_8px_20px_rgba(232,60,139,0.3)] group inline-flex items-center text-base"
                 >
-                  <span>Schedule Free Scanner</span>
+                  <span>{t('buttonText')}</span>
                   <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1 group-hover:scale-105 ml-3 flex-shrink-0">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -81,7 +84,7 @@ export function BodyScannerCTA() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#55C5D5] opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#55C5D5]"></span>
                   </span>
-                  <span className="font-bold tracking-widest uppercase">SCANNER ACTIVE</span>
+                  <span className="font-bold tracking-widest uppercase">{t('scannerActive')}</span>
                 </div>
                 <span className="text-white/40">SYS.v2.4</span>
               </div>
@@ -112,26 +115,26 @@ export function BodyScannerCTA() {
                 {/* Biometric Data Floating Badges (safely positioned within HUD frame) */}
                 <div className="absolute top-3 left-1 sm:left-2 bg-[#17343A]/90 backdrop-blur-md border border-[#55C5D5]/50 rounded-xl px-2.5 py-1 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-semibold text-white shadow-[0_4px_12px_rgba(0,0,0,0.4)] flex items-center gap-1.5 z-20 animate-[floatSoft_4s_ease-in-out_infinite_alternate]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#55C5D5]" />
-                  <span>Age: <strong className="text-[#55C5D5]">25</strong></span>
+                  <span>{t('age')}: <strong className="text-[#55C5D5]">25</strong></span>
                 </div>
 
                 <div className="absolute top-1/2 -translate-y-1/2 right-1 sm:right-2 bg-[#17343A]/90 backdrop-blur-md border border-[#F4C84A]/50 rounded-xl px-2.5 py-1 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-semibold text-white shadow-[0_4px_12px_rgba(0,0,0,0.4)] flex items-center gap-1.5 z-20 animate-[floatSoft_5s_ease-in-out_infinite_alternate_reverse]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#F4C84A]" />
-                  <span>Muscle: <strong className="text-[#F4C84A] font-bold">Optimal</strong></span>
+                  <span>{t('muscle')}: <strong className="text-[#F4C84A] font-bold">{t('optimal')}</strong></span>
                 </div>
 
                 <div className="absolute bottom-3 left-1 sm:left-2 bg-[#17343A]/90 backdrop-blur-md border border-[#E83C8B]/50 rounded-xl px-2.5 py-1 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-semibold text-white shadow-[0_4px_12px_rgba(0,0,0,0.4)] flex items-center gap-1.5 z-20 animate-[floatSoft_4.5s_ease-in-out_infinite_alternate]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#E83C8B]" />
-                  <span>Body Fat: <strong className="text-[#E83C8B] font-bold">14%</strong></span>
+                  <span>{t('bodyFat')}: <strong className="text-[#E83C8B] font-bold">14%</strong></span>
                 </div>
               </div>
 
               {/* HUD Footer Status */}
               <div className="w-full flex items-center justify-between text-[10px] sm:text-[11px] text-[#EBF8FA]/70 font-mono border-t border-white/10 pt-2 z-20">
                 <span className="flex items-center gap-1">
-                  <span className="text-[#55C5D5]">✓</span> 100% NON-INVASIVE
+                  <span className="text-[#55C5D5]">✓</span> {t('nonInvasive')}
                 </span>
-                <span className="text-[#F4C84A] font-bold tracking-wider">3-MIN IN CLUB</span>
+                <span className="text-[#F4C84A] font-bold tracking-wider">{t('duration')}</span>
               </div>
 
             </div>

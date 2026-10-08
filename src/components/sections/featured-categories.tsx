@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from 'next-intl';
 import { motion } from "motion/react";
 
 export function FeaturedCategoriesSection() {
+  const t = useTranslations('FeaturedCategories');
   const fadeUp: any = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -41,7 +43,7 @@ export function FeaturedCategoriesSection() {
           className="text-3xl sm:text-4xl font-black text-[#17343A] uppercase tracking-wide text-center mb-3"
           style={{ textShadow: "0 2px 10px rgba(255,255,255,0.9)" }}
         >
-          Find Your Flavor
+          {t('title')}
         </motion.h2>
 
         {/* Divider line */}
@@ -56,23 +58,23 @@ export function FeaturedCategoriesSection() {
             className="text-[#17343A] text-base sm:text-lg font-semibold leading-relaxed"
             style={{ textShadow: "0 1px 8px rgba(255,255,255,0.9)" }}
           >
-            From gourmet protein shakes to clean energy teas, discover what makes our menu a Pembroke Pines favorite. We believe that eating healthy shouldn&apos;t mean sacrificing taste.
+            {t('p1')}
           </p>
           <p 
             className="text-[#17343A] text-base sm:text-lg font-semibold leading-relaxed"
             style={{ textShadow: "0 1px 8px rgba(255,255,255,0.9)" }}
           >
-            Our carefully crafted menu is designed to support your wellness goals while providing a delicious experience. Whether you need a morning boost, a post-workout recovery shake, or a healthy treat.
+            {t('p2')}
           </p>
         </motion.div>
 
         {/* Centered Button */}
         <motion.div variants={fadeUp}>
           <Link
-            href="/#meet-the-crafter"
+            href="/menu"
             className="clay-btn inline-flex items-center justify-center font-bold px-8 py-3 text-xs uppercase tracking-wider text-white"
           >
-            <span>More About Us</span>
+            <span>{t('viewMenu')}</span>
           </Link>
         </motion.div>
 

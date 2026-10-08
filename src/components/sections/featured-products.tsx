@@ -2,11 +2,13 @@
 
 import { ProductCard } from "@/components/menu/product-card";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from 'next-intl';
 import { motion } from "motion/react";
 import { PRODUCTS } from "@/data/products";
 
 export function FeaturedProductsSection() {
+  const t = useTranslations('FeaturedProducts');
   // Select one shake, one acai bowl, and one waffle for signature products
   const signatureProducts = [
     PRODUCTS.find(p => p.category === "protein-shakes" && p.isFeatured),
@@ -32,11 +34,9 @@ export function FeaturedProductsSection() {
         {/* Section Header */}
         <motion.div variants={fadeUp} className="text-center mb-16 flex flex-col items-center">
           <div className="inline-flex items-center justify-center bg-white border border-[#17343A]/10 text-[#17343A] rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] mb-4">
-            Menu Highlights
+            {t('highlights')}
           </div>
-          <h2 id="featured-heading" className="text-4xl sm:text-6xl font-black text-[#17343A] tracking-tight leading-none mb-6">
-            Signature <span className="text-[#55C5D5]">Products</span>
-          </h2>
+          <h2 id="featured-heading" className="text-4xl sm:text-6xl font-black text-[#17343A] tracking-tight leading-none mb-6" dangerouslySetInnerHTML={{ __html: t.raw('title') }} />
         </motion.div>
 
         {/* Featured Products Grid */}
@@ -50,7 +50,7 @@ export function FeaturedProductsSection() {
         <motion.div variants={fadeUp}>
           <Link href="/menu">
             <Button variant="default" size="lg" className="group">
-              <span>View Full Menu</span>
+              <span>{t('viewMenu')}</span>
               <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1 group-hover:scale-105 ml-3">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>

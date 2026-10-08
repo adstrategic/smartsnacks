@@ -1,13 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/routing";
 import { Menu, X, MapPin, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LanguageSwitcher } from "@/components/ui/language-switcher";
+
+import { useTranslations } from 'next-intl';
 
 export function Header() {
+  const t = useTranslations('Navigation');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
@@ -34,10 +37,10 @@ export function Header() {
 
   const navLinks = [
     { label: "HOME", href: "/" },
-    { label: "MENU", href: "/menu" },
-    { label: "ABOUT", href: "/#meet-the-crafter" },
-    { label: "LOCATION", href: "/#location" },
-    { label: "CONTACT", href: "/contact" },
+    { label: t('menu'), href: "/menu" },
+    { label: t('ourStory'), href: "/#meet-the-crafter" },
+    { label: t('location'), href: "/#location" },
+    { label: t('contact'), href: "/contact" },
   ];
 
   const headerBg = isHome && !isScrolled 
@@ -81,12 +84,14 @@ export function Header() {
               </Link>
             ))}
 
+            <LanguageSwitcher textColor={textColor} />
+
             {/* Primary Action Button */}
             <Link
               href="/menu"
               className="ml-4 clay-btn-yellow inline-flex items-center justify-center font-bold text-xs uppercase tracking-wider px-6 py-2.5"
             >
-              Order Now
+              {t('orderNow')}
             </Link>
           </nav>
 
@@ -135,7 +140,7 @@ export function Header() {
               </div>
             ))}
 
-            <div className="overflow-hidden mt-6">
+            <div className="overflow-hidden mt-6 flex items-center justify-between">
               <a
                 href="https://jairoguerrero.herbalife.com/es-us/u/loyalty-premium"
                 target="_blank"
@@ -144,9 +149,15 @@ export function Header() {
                 className="inline-flex items-center gap-3 text-lg font-bold text-[#F4C84A] hover:text-white transition-colors animate-in slide-in-from-bottom-12 fade-in duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] fill-mode-both"
                 style={{ animationDelay: `${100 + navLinks.length * 50}ms` }}
               >
-                <span>Shop Nutrition Products</span>
+                <span>{t('shopProducts')}</span>
                 <ExternalLink className="w-5 h-5" aria-hidden="true" />
               </a>
+              <div 
+                className="animate-in slide-in-from-bottom-12 fade-in duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] fill-mode-both"
+                style={{ animationDelay: `${100 + navLinks.length * 50}ms` }}
+              >
+                <LanguageSwitcher textColor="text-white" />
+              </div>
             </div>
 
             <div className="pt-8 overflow-hidden">
@@ -159,7 +170,7 @@ export function Header() {
                   className="w-full justify-center bg-[#55C5D5] text-[#17343A] hover:bg-[#42B3C3] inline-flex items-center font-bold px-8 py-4 uppercase tracking-wider rounded-full text-sm transition-transform active:scale-[0.98]"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Explore Full Menu
+                  {t('exploreMenu')}
                 </Link>
               </div>
             </div>

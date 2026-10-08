@@ -3,17 +3,28 @@
 import { motion } from "motion/react";
 import { ImageCarousel } from "@/components/ui/image-carousel";
 
+import { useTranslations } from 'next-intl';
+
 const CAMBI_IMAGES = [
-  "/assets/images/cambi1.png",
-  "/assets/images/cambi2.png",
-  "/assets/images/cambi3.png",
-  "/assets/images/cambi6.png",
-  "/assets/images/cambi7.png",
-  "/assets/images/cambi8.png",
-  "/assets/images/cambi9.png",
+  "/assets/resutados/WhatsApp Image 2026-10-08 at 4.58.55 PM (1).jpeg",
+  "/assets/resutados/WhatsApp Image 2026-10-08 at 4.58.55 PM (2).jpeg",
+  "/assets/resutados/WhatsApp Image 2026-10-08 at 4.58.55 PM.jpeg",
+  "/assets/resutados/WhatsApp Image 2026-10-08 at 4.59.44 PM (1).jpeg",
+  "/assets/resutados/WhatsApp Image 2026-10-08 at 4.59.44 PM (2).jpeg",
+  "/assets/resutados/WhatsApp Image 2026-10-08 at 4.59.44 PM (3).jpeg",
+  "/assets/resutados/WhatsApp Image 2026-10-08 at 4.59.44 PM (4).jpeg",
+  "/assets/resutados/WhatsApp Image 2026-10-08 at 4.59.44 PM (5).jpeg",
+  "/assets/resutados/WhatsApp Image 2026-10-08 at 4.59.44 PM (6).jpeg",
+  "/assets/resutados/WhatsApp Image 2026-10-08 at 4.59.44 PM (7).jpeg",
+  "/assets/resutados/WhatsApp Image 2026-10-08 at 4.59.44 PM.jpeg",
+  "/assets/resutados/cambi3.png",
+  "/assets/resutados/cambi6.png",
+  "/assets/resutados/cambi7.png",
+  "/assets/resutados/cambi9.png",
 ];
 
 export function JoinClubSection() {
+  const t = useTranslations('JoinClub');
   const fadeUp: any = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -35,7 +46,7 @@ export function JoinClubSection() {
             <ImageCarousel
               images={CAMBI_IMAGES}
               altPrefix="Smart Snack Member Results"
-              badgeText="Real Results"
+              badgeText={t('badge')}
               aspectClassName="h-[480px] sm:h-[540px]"
             />
           </motion.div>
@@ -47,15 +58,13 @@ export function JoinClubSection() {
             variants={fadeUp}
             className="order-2"
           >
-            <h2 className="text-4xl sm:text-5xl font-black text-[#17343A] uppercase tracking-tight mb-6">
-              Join the <span className="text-[#E83C8B]">Club</span>
-            </h2>
+            <h2 className="text-4xl sm:text-5xl font-black text-[#17343A] uppercase tracking-tight mb-6" dangerouslySetInnerHTML={{ __html: t.raw('title') }} />
             <div className="w-20 h-1 bg-[#55C5D5] mb-8 rounded-full" />
             <p className="text-[#3D585E] text-lg leading-relaxed mb-6 font-medium">
-              Become part of a community that celebrates health, wellness, and great taste. Unlock exclusive loyalty rewards, premium products, and special perks by joining us.
+              {t('p1')}
             </p>
             <p className="text-[#3D585E] leading-relaxed mb-8">
-              Whether you are local to Pembroke Pines or just love our vibe, sign up for premium loyalty benefits and stay connected with the Smart Snack family.
+              {t('p2')}
             </p>
             
             <a 
@@ -64,7 +73,7 @@ export function JoinClubSection() {
               rel="noopener noreferrer"
               className="clay-btn inline-flex text-white font-bold px-8 py-4 uppercase tracking-wider"
             >
-              Join the Club
+              {t('joinBtn')}
             </a>
           </motion.div>
 

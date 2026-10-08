@@ -5,10 +5,10 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Header } from "@/components/layout/header";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { STORE_LOCATION } from "@/data/locations";
-import "./globals.css";
+import "../globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,7 +20,6 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-heading",
   display: "swap",
-  weight: ["600", "700", "800"],
 });
 
 export const viewport: Viewport = {
@@ -104,11 +103,26 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import { routing } from '@/i18n/routing';
+
+export default async function RootLayout(props: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const params = await props.params;
+  const { locale } = params;
+  const { children } = props;
+
+  // Ensure that the incoming `locale` is valid
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
+  const messages = await getMessages();
+
   // GA Measurement ID (configurable via env, with placeholder fallback)
   const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX";
 
@@ -117,7 +131,7 @@ export default function RootLayout({
   const websiteSchema = generateWebSiteSchema();
 
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`}>
+    <html lang={locale} className={`${inter.variable} ${plusJakartaSans.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -133,20 +147,21 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased bg-[#FDF9F3] text-[#17343A] flex flex-col min-h-screen">
-        {/* Accessible skip link */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-[#17343A] text-white px-4 py-2 rounded-md font-bold shadow-lg"
-        >
-          Skip to main content
-        </a>
+        <NextIntlClientProvider messages={messages}>
+          {/* Accessible skip link */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-[#17343A] text-white px-4 py-2 rounded-md font-bold shadow-lg"
+          >
+            Skip to main content
+          </a>
 
-        {/* Global Layout Landmarks */}
-        <Header />
-        
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
+          {/* Global Layout Landmarks */}
+          <Header />
+          
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
 
         <footer className="relative overflow-hidden bg-[#17343A] text-[#EBF8FA]/80 pt-16 pb-12 border-t border-[#17343A]/20 text-xs">
           {/* Centered Background Watermark Logo */}
@@ -286,6 +301,7 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={gaId} />}
         
         <WhatsAppButton />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

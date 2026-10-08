@@ -8,8 +8,8 @@ export const STORE_LOCATION: BusinessLocation = {
   state: "FL",
   postalCode: "33027",
   country: "US",
-  phone: "+19542471200",
-  displayPhone: "(954) 247-1200",
+  phone: "+17865547333",
+  displayPhone: "+1 (786) 554-7333",
   googleMapsDirectionsUrl: "https://www.google.com/maps/search/?api=1&query=12516+Pines+Blvd+Ste+A9,+Pembroke+Pines,+FL+33027",
   embedMapUrlPlaceholder: "https://maps.google.com/maps?q=12516+Pines+Blvd+Ste+A9,+Pembroke+Pines,+FL+33027&t=&z=16&ie=UTF8&iwloc=&output=embed",
   hours: [

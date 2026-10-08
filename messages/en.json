@@ -1,0 +1,57 @@
+{
+  "Navigation": {
+    "menu": "Full Menu",
+    "proteinShakes": "Protein Shakes",
+    "energyTeas": "Mega Energy Teas",
+    "acaiBowls": "Açaí & Oatmeal Bowls",
+    "wafflesSnacks": "Waffles & Snacks",
+    "ourStory": "Our Story & Vibe",
+    "location": "Hours & Directions",
+    "contact": "Order Ahead / Contact",
+    "orderNow": "Order Now",
+    "exploreMenu": "Explore Full Menu",
+    "shopProducts": "Shop Nutrition Products"
+  },
+  "BodyScannerCTA": {
+    "freeConsultation": "100% Free Consultation",
+    "titleStart": "Start Your Change with a ",
+    "titleHighlight": "Body Scan",
+    "description": "Discover your starting point. Get a comprehensive body composition analysis, including body fat percentage, muscle mass, and metabolic age—completely free in our club.",
+    "bullet1": "Body fat and muscle mass evaluation",
+    "bullet2": "Know your metabolic age",
+    "bullet3": "Personalized goals for your lifestyle",
+    "buttonText": "Schedule Free Scanner",
+    "scannerActive": "SCANNER ACTIVE",
+    "age": "Age",
+    "muscle": "Muscle",
+    "optimal": "Optimal",
+    "bodyFat": "Body Fat",
+    "nonInvasive": "100% NON-INVASIVE",
+    "duration": "3-MIN IN CLUB"
+  },
+  "HeroSection": {
+    "welcomeTo": "Welcome to",
+    "title": "SMART SNACK<br/>NUTRITION",
+    "description": "Protein shakes, energy teas, açaí bowls and healthy snacks made for your everyday lifestyle in Pembroke Pines.",
+    "viewFullMenu": "View Full Menu",
+    "shopProducts": "Shop Products"
+  },
+  "FeaturedCategories": {
+    "title": "Find Your Flavor",
+    "p1": "From gourmet protein shakes to clean energy teas, discover what makes our menu a Pembroke Pines favorite. We believe that eating healthy shouldn't mean sacrificing taste.",
+    "p2": "Our carefully crafted menu is designed to support your wellness goals while providing a delicious experience. Whether you need a morning boost, a post-workout recovery shake, or a healthy treat.",
+    "viewMenu": "View Full Menu"
+  },
+  "FeaturedProducts": {
+    "highlights": "Menu Highlights",
+    "title": "Signature <span class=\"text-[#55C5D5]\">Products</span>",
+    "viewMenu": "View Full Menu"
+  },
+  "JoinClub": {
+    "title": "Join the <span class=\"text-[#E83C8B]\">Club</span>",
+    "p1": "Become part of a community that celebrates health, wellness, and great taste. Unlock exclusive loyalty rewards, premium products, and special perks by joining us.",
+    "p2": "Whether you are local to Pembroke Pines or just love our vibe, sign up for premium loyalty benefits and stay connected with the Smart Snack family.",
+    "joinBtn": "Join the Club",
+    "badge": "Real Results"
+  }
+}

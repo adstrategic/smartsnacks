@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from 'next-intl';
 import { motion, useReducedMotion } from "motion/react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { AutoplayVideo } from "@/components/ui/autoplay-video";
 
 export function HeroSection() {
+  const t = useTranslations('HeroSection');
   const shouldReduceMotion = useReducedMotion();
   const [phase, setPhase] = useState<"text" | "video">("text");
 
@@ -65,7 +67,7 @@ export function HeroSection() {
           {/* Welcome Script (Subtitle) */}
           <motion.div {...fadeUp(0.1)} className="mb-3">
             <span className="font-serif italic text-xl sm:text-2xl text-[#F4C84A]">
-              Welcome to
+              {t('welcomeTo')}
             </span>
           </motion.div>
 
@@ -75,9 +77,8 @@ export function HeroSection() {
             {...fadeUp(0.3)}
             className="text-4xl sm:text-6xl lg:text-7xl font-black text-white uppercase tracking-tight mb-5 max-w-3xl"
             style={{ textShadow: "0 4px 20px rgba(0,0,0,0.3)" }}
-          >
-            SMART SNACK<br/>NUTRITION
-          </motion.h1>
+            dangerouslySetInnerHTML={{ __html: t.raw('title') }}
+          />
 
           {/* Divider */}
           <motion.div {...fadeUp(0.5)} className="w-20 h-0.5 bg-[#55C5D5] mb-5 opacity-80" />
@@ -87,7 +88,7 @@ export function HeroSection() {
             {...fadeUp(0.6)}
             className="text-base sm:text-lg text-white/90 max-w-xl leading-relaxed mb-8 font-medium"
           >
-            Protein shakes, energy teas, açaí bowls and healthy snacks made for your everyday lifestyle in Pembroke Pines.
+            {t('description')}
           </motion.p>
         </motion.div>
 
@@ -103,7 +104,7 @@ export function HeroSection() {
                 href="/menu"
                 className="w-full sm:w-auto inline-flex items-center justify-center clay-btn font-bold px-6 py-3 text-sm uppercase tracking-wider whitespace-nowrap"
               >
-                <span>View Full Menu</span>
+                <span>{t('viewFullMenu')}</span>
               </Link>
               <a
                 href={SITE_CONFIG.herbalifeShopUrl}
@@ -111,7 +112,7 @@ export function HeroSection() {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center clay-btn-aqua font-bold px-6 py-3 text-sm uppercase tracking-wider whitespace-nowrap"
               >
-                <span>Shop Products</span>
+                <span>{t('shopProducts')}</span>
               </a>
             </motion.div>
           )}
@@ -128,7 +129,7 @@ export function HeroSection() {
             href="/menu"
             className="w-full sm:w-auto inline-flex items-center justify-center clay-btn font-bold px-6 py-3 text-sm uppercase tracking-wider whitespace-nowrap"
           >
-            <span>View Full Menu</span>
+            <span>{t('viewFullMenu')}</span>
           </Link>
           <a
             href={SITE_CONFIG.herbalifeShopUrl}
@@ -136,7 +137,7 @@ export function HeroSection() {
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center clay-btn-aqua font-bold px-6 py-3 text-sm uppercase tracking-wider whitespace-nowrap"
           >
-            <span>Shop Products</span>
+            <span>{t('shopProducts')}</span>
           </a>
         </motion.div>
       )}
