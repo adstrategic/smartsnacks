@@ -3,8 +3,11 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export function CommunityLifestyleSection() {
+  const t = useTranslations("CommunityLifestyle");
+
   const fadeUp: any = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -36,11 +39,12 @@ export function CommunityLifestyleSection() {
             
             <div className="max-w-xl pr-0 lg:pr-8">
               <div className="w-16 h-1 bg-[#F4C84A] mb-8 rounded-full" />
-              <h3 className="text-3xl sm:text-4xl font-black text-[#17343A] uppercase tracking-wide mb-6 leading-tight">
-                Your Daily <br/> Wellness Sanctuary
-              </h3>
+              <h3 
+                className="text-3xl sm:text-4xl font-black text-[#17343A] uppercase tracking-wide mb-6 leading-tight"
+                dangerouslySetInnerHTML={{ __html: t.raw("sanctuaryTitle") }}
+              />
               <p className="text-[#3D585E] text-lg leading-relaxed">
-                Step into a space designed for you to thrive. Whether you're grabbing a quick post-workout shake, bringing your laptop to work while sipping a loaded tea, or meeting friends, our club offers a welcoming atmosphere that feels like home.
+                {t("sanctuaryDesc")}
               </p>
             </div>
           </motion.div>
@@ -51,13 +55,13 @@ export function CommunityLifestyleSection() {
             {/* Premium Fuel */}
             <div className="border-t-2 border-[#17343A]/10 pt-8">
               <h3 className="text-2xl font-black text-[#17343A] uppercase tracking-wider mb-4">
-                Premium Fuel
+                {t("premiumFuelTitle")}
               </h3>
               <p className="text-[#3D585E] text-lg leading-relaxed mb-8">
-                Our protein shakes are crafted to taste like a cheat meal, while delivering the premium nutrition your body needs to recover and grow. 
+                {t("premiumFuelDesc")}
               </p>
               <Link href="/menu" className="inline-flex items-center text-[#E83C8B] font-black uppercase tracking-widest text-sm group">
-                View Menus
+                {t("viewMenus")}
                 <svg className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </Link>
             </div>
@@ -73,37 +77,47 @@ export function CommunityLifestyleSection() {
                 />
               </div>
               <h3 className="text-2xl font-black text-[#17343A] uppercase tracking-wider mb-4">
-                Community Events
+                {t("communityEventsTitle")}
               </h3>
               <p className="text-[#3D585E] text-lg leading-relaxed mb-8">
-                Join our workout camps, wellness challenges, and community hangouts right here in Pembroke Pines.
+                {t("communityEventsDesc")}
               </p>
               <a href="https://jairoguerrero.herbalife.com/es-us/u/loyalty-premium" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[#55C5D5] font-black uppercase tracking-widest text-sm group">
-                Join the Club
+                {t("joinClub")}
                 <svg className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </a>
             </div>
 
             {/* Combo Specials Highlight */}
-            <div className="bg-[#E83C8B] rounded-[2rem] p-8 sm:p-10 text-white relative overflow-hidden mt-4 shadow-xl">
-               <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none translate-x-1/4 translate-y-1/4">
+            <Link 
+              href="/menu" 
+              className="group block bg-[#E83C8B] hover:bg-[#d42d79] transition-all duration-300 rounded-[2rem] p-8 sm:p-10 text-white relative overflow-hidden mt-4 shadow-xl"
+            >
+               <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none translate-x-1/4 translate-y-1/4 group-hover:scale-110 transition-transform duration-500">
                  <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
                    <path d="M17 10l-4-4-4 4"/>
                    <path d="M13 6v16"/>
                  </svg>
                </div>
                
-               <div className="border border-white/30 inline-flex px-3 py-1.5 text-[10px] font-black uppercase tracking-widest rounded-md mb-6">
-                 Limited Time
+               <div className="border border-white/30 inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-black uppercase tracking-widest rounded-md mb-6">
+                 <span>{t("comboBadge")}</span>
                </div>
                
                <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-wide mb-3 leading-tight">
-                 Combo<br/>Specials
+                 {t("comboTitle")}
                </h3>
-               <p className="text-white/95 text-lg font-medium">
-                 Pair a Shake & Tea for the ultimate boost.
+               <p className="text-white/95 text-lg font-medium leading-relaxed mb-6">
+                 {t("comboDesc")}
                </p>
-            </div>
+
+               <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest bg-white text-[#E83C8B] px-5 py-2.5 rounded-full shadow-md group-hover:bg-[#FDF9F3] transition-colors">
+                 <span>{t("exploreMenu")}</span>
+                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                 </svg>
+               </div>
+            </Link>
 
           </motion.div>
         </div>

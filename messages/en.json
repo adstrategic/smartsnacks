@@ -13,14 +13,14 @@
     "shopProducts": "Shop Nutrition Products"
   },
   "BodyScannerCTA": {
-    "freeConsultation": "100% Free Consultation",
-    "titleStart": "Start Your Change with a ",
-    "titleHighlight": "Body Scan",
-    "description": "Discover your starting point. Get a comprehensive body composition analysis, including body fat percentage, muscle mass, and metabolic age—completely free in our club.",
-    "bullet1": "Body fat and muscle mass evaluation",
-    "bullet2": "Know your metabolic age",
-    "bullet3": "Personalized goals for your lifestyle",
-    "buttonText": "Schedule Free Scanner",
+    "freeConsultation": "Special Promo • 100% Free",
+    "titleStart": "Order Your Shake & Claim Your ",
+    "titleHighlight": "Free Body Scan",
+    "description": "Enjoy your favorite high-protein shake and get your body analysis on the house! Receive a full diagnostic of your body fat percentage, muscle mass, and metabolic age in just 3 minutes.",
+    "bullet1": "Included free when ordering your favorite shake or drink",
+    "bullet2": "Discover your body fat, muscle mass, and metabolic age",
+    "bullet3": "Personalized coaching to achieve your best fitness goals",
+    "buttonText": "Order & Claim Your Free Scanner",
     "scannerActive": "SCANNER ACTIVE",
     "age": "Age",
     "muscle": "Muscle",
@@ -53,5 +53,25 @@
     "p2": "Whether you are local to Pembroke Pines or just love our vibe, sign up for premium loyalty benefits and stay connected with the Smart Snack family.",
     "joinBtn": "Join the Club",
     "badge": "Real Results"
+  },
+  "MenuPromo": {
+    "badge": "EXCLUSIVE IN-CLUB PROMO!",
+    "title": "Order Your Shake & Claim Your Free Body Scan",
+    "description": "Order any of our 24g+ protein shakes or your favorite drink and get your full biometric body scan completely free at our Pembroke Pines club.",
+    "cta": "Order & Claim Free Scan"
+  },
+  "CommunityLifestyle": {
+    "sanctuaryTitle": "Your Daily <br/> Wellness Sanctuary",
+    "sanctuaryDesc": "Step into a space designed for you to thrive. Whether you're grabbing a quick post-workout shake, bringing your laptop to work while sipping a loaded tea, or meeting friends, our club offers a welcoming atmosphere that feels like home.",
+    "premiumFuelTitle": "Premium Fuel",
+    "premiumFuelDesc": "Our protein shakes are crafted to taste like a cheat meal, while delivering the premium nutrition your body needs to recover and grow.",
+    "viewMenus": "View Menus",
+    "communityEventsTitle": "Community Events",
+    "communityEventsDesc": "Join our workout camps, wellness challenges, and community hangouts right here in Pembroke Pines.",
+    "joinClub": "Join the Club",
+    "comboBadge": "Club Special",
+    "comboTitle": "Build Your Combo",
+    "comboDesc": "Come and build your favorite combo for a special price.",
+    "exploreMenu": "Explore Menu"
   }
 }

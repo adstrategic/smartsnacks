@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
           <p>As an independent distributor, some of your information may be shared with Herbalife Nutrition to process orders or manage your preferred member account, in accordance with their privacy policies. We do not sell your personal data to other third parties.</p>
           
           <h2 className="text-xl font-bold text-[#17343A] mt-8 mb-4">4. Contact Us</h2>
-          <p>If you have questions or comments about this notice, you may contact us at our Pembroke Pines location or via WhatsApp.</p>
+          <p>If you have questions or comments about this notice, you may contact us at our Pembroke Pines location, via email at <a href="mailto:smartsnacksnutrition@gmail.com" className="text-[#55C5D5] underline">smartsnacksnutrition@gmail.com</a>, or via WhatsApp at <a href="https://wa.me/17865547333" className="text-[#55C5D5] underline">+1 (786) 554-7333</a>.</p>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { Product } from "@/types";
 import { ProductCard } from "@/components/menu/product-card";
 import { ProductModal } from "@/components/menu/product-modal";
-import { ChevronDown, ChevronLeft, ChevronRight, Sparkles, Flame, Zap, ShieldCheck, Cookie } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Sparkles, Flame, Zap, ShieldCheck, Cookie, Coffee, Wine, PlusCircle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface MenuExperienceProps {
@@ -24,39 +24,66 @@ interface MenuCategoryDef {
 const MENU_CATEGORIES: MenuCategoryDef[] = [
   {
     id: "shakes",
-    name: "Protein Shakes & Brews",
-    subtitle: "24g+ Protein Shakes, Meal Replacements & High-Protein Coffee",
-    description: "Thick, gourmet meal-replacement shakes crafted with 24g+ protein, low sugar, and daily vitamins.",
+    name: "Batidos Proteicos (Shakes)",
+    subtitle: "24g+ Proteína • 12 Recetas Gourmet de Reemplazo de Comida",
+    description: "Espesos y deliciosos batidos con 24g+ de proteína, vitaminas y minerales. Hechos al momento con toppings de galleta, granola y salsas sin culpa.",
     icon: Flame,
     accent: "#55C5D5",
-    filterFn: (p) => p.category === "protein-shakes" || p.category === "coffee",
+    filterFn: (p) => p.category === "protein-shakes",
   },
   {
-    id: "teas",
-    name: "Mega Energy Teas & Drinks",
-    subtitle: "Botanical Energy Teas, Refreshers & Latin Specialties",
-    description: "Vibrant layered herbal teas with clean botanical metabolism boosters, aloe vera, and zero sugar crash.",
+    id: "mega-teas",
+    name: "Mega Tea",
+    subtitle: "24 Cal • 0g Azúcar • 4g Carbs • Antioxidantes y Vitamina C",
+    description: "Nuestras 10 fórmulas exclusivas de Mega Tea con Liftoff efervescente, té herbal concentrado, aloe calmante y potenciadores de energía limpia sin bajón.",
     icon: Zap,
     accent: "#F4C84A",
-    filterFn: (p) => p.category === "mega-teas" || p.category === "specialties",
+    filterFn: (p) => p.category === "mega-teas",
   },
   {
     id: "bowls-waffles",
-    name: "Açaí Bowls & Waffles",
-    subtitle: "Organic Superfood Bowls, Warm Oats & Fresh Protein Waffles",
-    description: "Antioxidant-rich açaí loaded with fresh fruits, hearty oatmeal, and fluffy protein waffles made to order.",
+    name: "Bowls y Waffles",
+    subtitle: "Acai Bowls, Oatmeal Bowls, Protein Waffles y Waffle de Pandebono",
+    description: "Bowls de açaí orgánico con fruta fresca, avena tibia nutritiva, waffles de proteína y nuestro nuevo Waffle de Pandebono quesudo dorado al momento.",
     icon: ShieldCheck,
     accent: "#E83C8B",
-    filterFn: (p) => p.id === "acai-bowls" || p.id === "oatmeal-bowls" || p.id === "protein-waffles",
+    filterFn: (p) => p.id === "acai-bowls" || p.id === "oatmeal-bowls" || p.id === "protein-waffles" || p.id === "waffle-pandebono-proteina",
   },
   {
     id: "snacks",
-    name: "Healthy Snacks & Bakery",
-    subtitle: "Fresh Protein Brownies, Cookies & Wholesome Treats",
-    description: "Delicious bakery treats packed with wholesome protein to keep you fueled between workouts and meetings.",
+    name: "Repostería Proteica y Snacks",
+    subtitle: "Brownies, Cookies, Barras Proteicas, Chips y Pandebono",
+    description: "Horneados frescos con proteína y snacks empacados prácticos para llevar antes o después de entrenar en Pembroke Pines.",
     icon: Cookie,
     accent: "#10B981",
-    filterFn: (p) => p.id === "protein-brownies" || p.id === "protein-cookies" || p.category === "waffles-snacks",
+    filterFn: (p) => p.category === "waffles-snacks",
+  },
+  {
+    id: "coffee",
+    name: "Cafés (Coffee)",
+    subtitle: "Regular Coffee • VIP Coffee con 37g de Proteína",
+    description: "House Blend, Mocha y Caramel Macchiato servidos calientes o fríos con espresso real y opción de 37g de proteína de alta asimilación.",
+    icon: Coffee,
+    accent: "#F4C84A",
+    filterFn: (p) => p.category === "coffee",
+  },
+  {
+    id: "specialties",
+    name: "Tés y Bebidas Especiales",
+    subtitle: "Té Regular, Mangonada, Horchata y Selección de Hot Teas",
+    description: "Especialidades frías artesanales con chamoy y Tajín, horchata cremosa con canela y colección completa de tés calientes reconfortantes.",
+    icon: Wine,
+    accent: "#8B5CF6",
+    filterFn: (p) => p.category === "specialties" || p.category === "energy-teas",
+  },
+  {
+    id: "functional-addons",
+    name: "Funcionales y Agregados (Add-Ons)",
+    subtitle: "Bebidas Embotelladas preparadas y Suplementos Personalizados",
+    description: "Bebidas listas para llevar y potenciadores a tu medida: Colágeno, Fibra, Probióticos, Liftoff, Niteworks, BCAAs, Pre-Workout y Prolessa Duo.",
+    icon: PlusCircle,
+    accent: "#06B6D4",
+    filterFn: (p) => p.category === "functional-drinks" || p.id === "suplementos-add-ons",
   },
 ];
 
@@ -103,7 +130,7 @@ function CategoryCarousel({ products, onSelectProduct }: { products: Product[]; 
         {products.map((product) => (
           <div
             key={product.id}
-            className="w-[280px] sm:w-[320px] shrink-0 snap-start"
+            className="w-[300px] sm:w-[340px] shrink-0 snap-start"
           >
             <ProductCard
               product={product}
@@ -120,9 +147,12 @@ export function MenuExperience({ initialProducts }: MenuExperienceProps) {
   // All accordions open by default for rich browsing
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
     shakes: true,
-    teas: true,
+    "mega-teas": true,
     "bowls-waffles": true,
     snacks: true,
+    coffee: true,
+    specialties: true,
+    "functional-addons": true,
   });
 
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -137,18 +167,24 @@ export function MenuExperience({ initialProducts }: MenuExperienceProps) {
   const expandAll = () => {
     setOpenSections({
       shakes: true,
-      teas: true,
+      "mega-teas": true,
       "bowls-waffles": true,
       snacks: true,
+      coffee: true,
+      specialties: true,
+      "functional-addons": true,
     });
   };
 
   const collapseAll = () => {
     setOpenSections({
       shakes: false,
-      teas: false,
+      "mega-teas": false,
       "bowls-waffles": false,
       snacks: false,
+      coffee: false,
+      specialties: false,
+      "functional-addons": false,
     });
   };
 

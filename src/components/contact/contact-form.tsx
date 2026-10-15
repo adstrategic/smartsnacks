@@ -112,7 +112,7 @@ export function ContactForm() {
           <input
             id="phone"
             type="tel"
-            placeholder="(954) 555-0123"
+            placeholder="(786) 554-7333"
             {...register("phone")}
             className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
           />

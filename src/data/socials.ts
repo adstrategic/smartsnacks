@@ -15,8 +15,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     platform: "WhatsApp",
-    url: "https://wa.me/[placeholder_phonenumber]?text=Hi%20Smart%20Snack%20Nutrition!",
-    handle: "Chat on WhatsApp",
+    url: "https://wa.me/17865547333?text=Hi%20Smart%20Snack%20Nutrition!",
+    handle: "+1 (786) 554-7333",
     ariaLabel: "Message Smart Snack Nutrition on WhatsApp",
   },
 ];

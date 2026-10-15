@@ -76,30 +76,33 @@ export function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
             <div className="overflow-y-auto flex-1 custom-scrollbar">
               
               {/* Product Hero Image */}
-              <div className="relative w-full h-64 sm:h-72 bg-[#FDF9F3]">
+              <div className="relative w-full h-80 sm:h-96 bg-[#FDF9F3] overflow-hidden flex items-center justify-center p-4">
                 {product.image ? (
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover"
-                  />
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 672px"
+                      className="object-contain object-center drop-shadow-md"
+                    />
+                  </div>
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center bg-[#EBF8FA] text-[#55C5D5]/30">
                     <span className="font-extrabold text-4xl">SSN</span>
                   </div>
                 )}
                 
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
+                {/* Soft Gradient Overlay transitioning from image into modal content */}
+                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
                 
                 {/* Badges on Image */}
-                <div className="absolute bottom-6 left-6 flex items-center gap-2">
+                <div className="absolute top-6 left-6 flex items-center gap-2 z-10">
                   <Badge variant="default" className="shadow-sm">
                     {product.categoryLabel}
                   </Badge>
                   {product.proteinAmount && (
-                    <span className="text-xs font-bold text-[#17343A] bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
+                    <span className="text-xs font-bold text-[#17343A] bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
                       {product.proteinAmount}
                     </span>
                   )}
@@ -109,9 +112,11 @@ export function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
               {/* Content Body */}
               <div className="p-6 sm:p-8">
                 
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#17343A] mb-3">
-                  {product.name}
-                </h2>
+                <div className="flex items-center justify-between gap-4 mb-3">
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-[#17343A]">
+                    {product.name}
+                  </h2>
+                </div>
                 
                 <p className="text-base text-[#3D585E] leading-relaxed mb-6">
                   {product.description}

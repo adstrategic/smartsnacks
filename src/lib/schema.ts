@@ -22,6 +22,7 @@ export function generateLocalBusinessSchema() {
       "Premier local nutrition club and wellness bar on the Pines Boulevard corridor in Pembroke Pines, Florida. Specializing in 24g+ protein shakes, clean energy mega teas, fresh açaí superfood bowls, and healthy snacks.",
     url: SITE_CONFIG.url,
     telephone: STORE_LOCATION.phone,
+    email: STORE_LOCATION.email,
     priceRange: "$$",
     servesCuisine: [
       "Local Nutrition",
@@ -87,15 +88,21 @@ export function generateLocalBusinessSchema() {
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "07:00",
+        dayOfWeek: ["Monday", "Wednesday", "Thursday", "Friday"],
+        opens: "07:30",
         closes: "18:00",
       },
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Sunday",
-        opens: "09:00",
-        closes: "15:00",
+        dayOfWeek: "Tuesday",
+        opens: "07:30",
+        closes: "13:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "07:30",
+        closes: "13:30",
       },
     ],
     sameAs: SOCIAL_LINKS.map((s) => s.url).filter((url) => !url.includes("[placeholder")),
@@ -121,6 +128,7 @@ export function generateOrganizationSchema() {
     image: `${SITE_CONFIG.url}/assets/images/hero_shakes_teas.jpg`,
     description:
       "Smart Snack Nutrition is a community-driven local nutrition and wellness brand based in Pembroke Pines, FL, committed to clean energy teas, 24g+ protein shakes, açaí bowls, and healthy snacks.",
+    email: STORE_LOCATION.email,
     sameAs: SOCIAL_LINKS.map((s) => s.url).filter((url) => !url.includes("[placeholder")),
     knowsAbout: [
       "Local Nutrition",

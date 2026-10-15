@@ -46,11 +46,11 @@ export function HomeLocationSection() {
                 <span>{STORE_LOCATION.displayPhone}</span>
               </a>
               <a 
-                href="mailto:info@smartsnacknutrition.com" 
+                href={`mailto:${STORE_LOCATION.email}`} 
                 className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-[#E83C8B] hover:underline py-1.5 px-3"
               >
                 <Mail className="w-4 h-4 text-[#E83C8B]" />
-                <span>info@smartsnacknutrition.com</span>
+                <span>{STORE_LOCATION.email}</span>
               </a>
             </div>
 

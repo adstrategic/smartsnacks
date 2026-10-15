@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { Header } from "@/components/layout/header";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 import { Link } from "@/i18n/routing";
@@ -123,8 +122,8 @@ export default async function RootLayout(props: Readonly<{
 
   const messages = await getMessages();
 
-  // GA Measurement ID (configurable via env, with placeholder fallback)
-  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX";
+  // GA Measurement ID (configurable via env, with official default fallback)
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-5PBFH9XSJT";
 
   const localBusinessSchema = generateLocalBusinessSchema();
   const organizationSchema = generateOrganizationSchema();
@@ -133,6 +132,21 @@ export default async function RootLayout(props: Readonly<{
   return (
     <html lang={locale} className={`${inter.variable} ${plusJakartaSans.variable}`}>
       <head>
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${gaId}');
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -261,6 +275,9 @@ export default async function RootLayout(props: Readonly<{
                 <a href={`tel:${STORE_LOCATION.phone}`} className="text-[#55C5D5] hover:underline font-semibold block text-xs mt-2">
                   Call: {STORE_LOCATION.displayPhone}
                 </a>
+                <a href={`mailto:${STORE_LOCATION.email}`} className="text-[#EBF8FA]/80 hover:text-white hover:underline font-medium block text-xs mt-1">
+                  {STORE_LOCATION.email}
+                </a>
               </div>
 
             </div>
@@ -298,7 +315,6 @@ export default async function RootLayout(props: Readonly<{
         {/* Analytics Integrations */}
         <Analytics />
         <SpeedInsights />
-        {process.env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={gaId} />}
         
         <WhatsAppButton />
         </NextIntlClientProvider>

@@ -16,11 +16,8 @@ const CAMBI_IMAGES = [
   "/assets/resutados/WhatsApp Image 2026-10-08 at 4.59.44 PM (5).jpeg",
   "/assets/resutados/WhatsApp Image 2026-10-08 at 4.59.44 PM (6).jpeg",
   "/assets/resutados/WhatsApp Image 2026-10-08 at 4.59.44 PM (7).jpeg",
-  "/assets/resutados/WhatsApp Image 2026-10-08 at 4.59.44 PM.jpeg",
   "/assets/resutados/cambi3.png",
   "/assets/resutados/cambi6.png",
-  "/assets/resutados/cambi7.png",
-  "/assets/resutados/cambi9.png",
 ];
 
 export function JoinClubSection() {
@@ -34,9 +31,9 @@ export function JoinClubSection() {
     <section className="py-32 sm:py-40 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
+
           {/* Carousel for Member Transformations (cambi1 to cambi9) */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -51,7 +48,7 @@ export function JoinClubSection() {
             />
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -66,9 +63,9 @@ export function JoinClubSection() {
             <p className="text-[#3D585E] leading-relaxed mb-8">
               {t('p2')}
             </p>
-            
-            <a 
-              href="https://jairoguerrero.herbalife.com/es-us/u/loyalty-premium" 
+
+            <a
+              href="https://jairoguerrero.herbalife.com/es-us/u/loyalty-premium"
               target="_blank"
               rel="noopener noreferrer"
               className="clay-btn inline-flex text-white font-bold px-8 py-4 uppercase tracking-wider"

@@ -7,7 +7,8 @@ export type ProductCategory =
   | "waffles-snacks"
   | "waffles"
   | "specialties"
-  | "coffee";
+  | "coffee"
+  | "functional-drinks";
 
 export interface NutritionalHighlight {
   label: string;
@@ -53,6 +54,7 @@ export interface BusinessLocation {
   country: string;
   phone: string;
   displayPhone: string;
+  email: string;
   googleMapsDirectionsUrl: string;
   embedMapUrlPlaceholder: string;
   hours: {

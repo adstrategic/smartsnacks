@@ -5,7 +5,7 @@ import { STORE_LOCATION } from "@/data/locations";
 import { SOCIAL_LINKS } from "@/data/socials";
 import { ContactForm } from "@/components/contact/contact-form";
 import { Badge } from "@/components/ui/badge";
-import { Phone, MapPin, MessageCircle, Clock, Navigation } from "lucide-react";
+import { Phone, MapPin, MessageCircle, Clock, Navigation, Mail } from "lucide-react";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 
@@ -102,6 +102,29 @@ export default function ContactPage() {
               </div>
             )}
 
+            {/* Email */}
+            <div className="bg-white rounded-3xl border border-[#17343A]/10 p-7 shadow-xs">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-[#FDF0F6] text-[#E83C8B] flex items-center justify-center shrink-0">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div>
+                  <h2 className="font-bold text-[#17343A] text-base mb-1">
+                    Email Inquiries
+                  </h2>
+                  <p className="text-xs text-[#3D585E] mb-3">
+                    Send us questions, suggestions, or catering requests anytime.
+                  </p>
+                  <a
+                    href={`mailto:${STORE_LOCATION.email}`}
+                    className="font-bold text-[#E83C8B] hover:text-[#D22B77] text-sm hover:underline break-all"
+                  >
+                    {STORE_LOCATION.email}
+                  </a>
+                </div>
+              </div>
+            </div>
+
             {/* Visit */}
             <div className="bg-white rounded-3xl border border-[#17343A]/10 p-7 shadow-xs">
               <div className="flex items-start gap-4">
@@ -139,8 +162,10 @@ export default function ContactPage() {
                     Operating Hours
                   </h2>
                   <p className="text-xs text-[#3D585E] leading-relaxed">
-                    Mon–Sat: 7:00 AM – 6:00 PM <br />
-                    Sun: 9:00 AM – 3:00 PM
+                    Mon, Wed, Thu, Fri: 7:30 AM – 6:00 PM <br />
+                    Tue: 7:30 AM – 1:00 PM <br />
+                    Sat: 7:30 AM – 1:30 PM <br />
+                    Sun: Closed
                   </p>
                 </div>
               </div>

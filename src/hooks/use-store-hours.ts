@@ -33,27 +33,38 @@ function computeStoreStatus(): StoreStatus {
     const currentTimeDecimal = hour + minute / 60;
     let openNow = false;
     let closing = "6:00 PM";
+    let opensNext = "7:30 AM";
 
     if (weekday === "Sun") {
-      openNow = currentTimeDecimal >= 9 && currentTimeDecimal < 15;
-      closing = "3:00 PM";
+      openNow = false;
+      opensNext = "Mon 7:30 AM";
+    } else if (weekday === "Tue") {
+      openNow = currentTimeDecimal >= 7.5 && currentTimeDecimal < 13;
+      closing = "1:00 PM";
+      opensNext = "Wed 7:30 AM";
+    } else if (weekday === "Sat") {
+      openNow = currentTimeDecimal >= 7.5 && currentTimeDecimal < 13.5;
+      closing = "1:30 PM";
+      opensNext = "Mon 7:30 AM";
     } else {
-      openNow = currentTimeDecimal >= 7 && currentTimeDecimal < 18;
+      // Mon, Wed, Thu, Fri
+      openNow = currentTimeDecimal >= 7.5 && currentTimeDecimal < 18;
       closing = "6:00 PM";
+      opensNext = "7:30 AM";
     }
 
     if (openNow) {
       return {
         isOpen: true,
-        statusText: `Open Now \u2022 Closes at ${closing}`,
+        statusText: `Open Now • Closes at ${closing}`,
         nextEventText: `Closes at ${closing}`,
       };
     }
 
     return {
       isOpen: false,
-      statusText: "Closed Now \u2022 Opens at 7:00 AM",
-      nextEventText: "Opens at 7:00 AM",
+      statusText: `Closed Now • Opens at ${opensNext}`,
+      nextEventText: `Opens at ${opensNext}`,
     };
   } catch {
     return {

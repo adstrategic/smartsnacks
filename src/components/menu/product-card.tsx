@@ -1,5 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import { Product } from "@/types";
 import { Badge } from "@/components/ui/badge";
+import { Check, ChevronDown, Sparkles } from "lucide-react";
 import Image from "next/image";
 
 interface ProductCardProps {
@@ -8,70 +12,181 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, onClick }: ProductCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   // Use a placeholder if no image exists
-  const imageSrc = product.image || "/assets/images/hero_shakes_teas.jpg"; 
+  const imageSrc = product.image || "/assets/images/hero_shakes_teas.jpg";
+
+  const handleCardClick = (e: React.MouseEvent) => {
+    // Toggle the card expansion
+    setIsExpanded((prev) => !prev);
+  };
+
+  const handleOpenModal = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onClick) onClick();
+  };
 
   return (
-    <div 
-      onClick={onClick}
-      className={`group relative w-full shrink-0 bg-[#17343A]/5 p-1.5 rounded-[2rem] border border-[#17343A]/10 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-2 hover:shadow-xl ${onClick ? 'cursor-pointer' : ''}`}
+    <div
+      onClick={handleCardClick}
+      className="group relative w-full shrink-0 bg-white rounded-[2rem] border border-[#17343A]/10 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 ease-out cursor-pointer overflow-hidden flex flex-col"
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          setIsExpanded((prev) => !prev);
+        }
+      }}
+      aria-expanded={isExpanded}
     >
-      <div className="bg-white rounded-[calc(2rem-6px)] shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_8px_16px_rgba(0,0,0,0.02)] border border-[#17343A]/5 h-full flex flex-col overflow-hidden">
-        {/* Image Container */}
-        <div className="relative w-full aspect-[4/3] bg-[#EBF8FA] overflow-hidden">
-          {/* Placeholder image representation */}
-          <Image 
+      {/* ========================================================= */}
+      {/* 1. LARGE FULL-BLEED / HIGH-FIT PRODUCT IMAGE              */}
+      {/* ========================================================= */}
+      <div
+        className={`relative w-full bg-[#F7FAFA] overflow-hidden transition-[height] duration-300 ease-out flex items-center justify-center ${
+          isExpanded ? "h-[400px] sm:h-[440px]" : "h-[350px] sm:h-[390px]"
+        }`}
+      >
+        {/* Ambient subtle backdrop */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF7F2]/40 via-transparent to-white/90" />
+
+        {/* Product Image: object-contain with zero padding so it fits in boldly & completely */}
+        <div className="relative w-full h-full p-1 sm:p-2">
+          <Image
             src={imageSrc}
             alt={product.name}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
+            className="object-contain object-center transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+            priority={product.isFeatured}
           />
-          
-          {/* Top Right Badge matching reference */}
-          <div className="absolute top-4 right-4 z-10">
-            <Badge className="bg-white/90 backdrop-blur-sm text-[#17343A] font-bold px-3 py-1 text-[10px] tracking-widest uppercase border-none rounded-full shadow-sm">
-              {product.categoryLabel}
-            </Badge>
-          </div>
         </div>
 
-        {/* Content Container */}
-        <div className="p-6 flex flex-col flex-1">
-          
-          {/* Title & Price Row */}
-          <div className="flex items-start justify-between gap-4 mb-3">
-            <h3 className="text-xl font-bold text-[#17343A] group-hover:text-[#E83C8B] transition-colors leading-tight">
-              {product.name}
-            </h3>
-          </div>
+        {/* Category Badge - Floating Top Right */}
+        <div className="absolute top-3 right-3 z-10">
+          <Badge className="bg-white/95 backdrop-blur-md text-[#17343A] font-bold px-3 py-1 text-[10px] tracking-wider uppercase border border-[#17343A]/10 rounded-full shadow-sm">
+            {product.categoryLabel}
+          </Badge>
+        </div>
 
-          {/* Short Description */}
-          <p className="text-sm text-[#3D585E] leading-relaxed mb-6 flex-1">
+        {/* Quick Expand Toggle Indicator - Floating Top Left */}
+        <div className="absolute top-3 left-3 z-10">
+          <span className="inline-flex items-center gap-1 bg-white/95 backdrop-blur-md text-[#17343A] group-hover:text-[#E83C8B] font-bold px-2.5 py-1 text-[10px] tracking-wider uppercase border border-[#17343A]/10 rounded-full shadow-sm transition-colors">
+            <span className="hidden xs:inline">{isExpanded ? "Cerrar" : "Info"}</span>
+            <ChevronDown
+              className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                isExpanded ? "rotate-180 text-[#E83C8B]" : "text-[#17343A]/70"
+              }`}
+            />
+          </span>
+        </div>
+
+        {/* Soft bottom gradient fade into the title & info area */}
+        <div
+          className={`absolute inset-x-0 bottom-0 pointer-events-none transition-all duration-300 ${
+            isExpanded
+              ? "h-20 bg-gradient-to-t from-white via-white/80 to-transparent"
+              : "h-12 bg-gradient-to-t from-white via-white/60 to-transparent"
+          }`}
+        />
+      </div>
+
+      {/* ========================================================= */}
+      {/* 2. PRODUCT NAME ONLY (DEFAULT STATE)                      */}
+      {/* ========================================================= */}
+      <div className="px-5 pt-3.5 pb-4 bg-white relative z-10 flex flex-col flex-1">
+        
+        {/* Title Row: Bold, clean, centered/left styled as user's screenshot */}
+        <div className="flex items-center justify-between gap-3">
+          <h3 className="text-xl sm:text-2xl font-black text-[#E83C8B] group-hover:text-[#d42d79] tracking-tight transition-colors leading-tight">
+            {product.name}
+          </h3>
+
+          {product.proteinAmount && (
+            <span className="shrink-0 text-[10px] font-extrabold uppercase tracking-wider text-[#55C5D5] bg-[#EBF8FA] border border-[#55C5D5]/20 px-2.5 py-1 rounded-full">
+              {product.proteinAmount}
+            </span>
+          )}
+        </div>
+
+        {/* ========================================================= */}
+        {/* 3. PRODUCT TEXT REVEALED ON INTERACTION (EXPANDED ONLY)    */}
+        {/* ========================================================= */}
+        <div
+          className={`overflow-hidden transition-all duration-300 ease-out ${
+            isExpanded
+              ? "max-h-[600px] opacity-100 pt-3.5 mt-2.5 border-t border-[#17343A]/10"
+              : "max-h-0 opacity-0"
+          }`}
+        >
+          {/* Main Short Description */}
+          <p className="text-sm font-semibold text-[#17343A] leading-snug mb-2">
             {product.shortDescription}
           </p>
 
-          {/* Nutritional Highlights Footer */}
-          <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#17343A]/5 text-[11px] font-bold text-[#17343A]">
-            {product.proteinAmount && (
-              <span className="flex items-center gap-1">
-                <span className="text-[#3D585E] font-normal">{product.proteinAmount}</span>
+          {/* Full Detailed Description */}
+          <p className="text-xs sm:text-sm text-[#3D585E] leading-relaxed mb-3">
+            {product.description}
+          </p>
+
+          {/* Ingredients & Highlights Box */}
+          {product.highlights && product.highlights.length > 0 && (
+            <div className="bg-[#FDF9F3] rounded-xl p-3 border border-[#17343A]/10 mb-3">
+              <span className="block text-[10px] font-extrabold uppercase tracking-widest text-[#17343A] mb-1.5 flex items-center gap-1.5">
+                <Sparkles className="w-3 h-3 text-[#E83C8B]" />
+                Ingredientes & Destacados
               </span>
-            )}
-            {product.caloriesPlaceholder && (
-              <span className="flex items-center gap-1">
-                <span className="text-[#17343A]/30">/</span>
-                <span className="text-[#3D585E] font-normal">{product.caloriesPlaceholder}</span>
-              </span>
-            )}
-            {product.highlights.slice(0, 2).map((h, i) => (
-              <span key={h} className="flex items-center gap-1">
-                {i > 0 && <span className="text-[#17343A]/30">/</span>}
-                <span className="bg-[#FDF9F3] border border-[#17343A]/10 px-1.5 py-0.5 rounded text-[9px] uppercase tracking-wider">{h}</span>
-              </span>
-            ))}
-          </div>
-          
+              <div className="grid grid-cols-1 gap-1">
+                {product.highlights.map((h) => (
+                  <div key={h} className="flex items-center gap-1.5 text-xs text-[#3D585E]">
+                    <Check className="w-3 h-3 text-[#55C5D5] shrink-0" />
+                    <span>{h}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Quick macro pill in expanded view */}
+          {product.caloriesPlaceholder && (
+            <div className="text-[11px] font-semibold text-[#708A90] mb-2">
+              {product.caloriesPlaceholder}
+            </div>
+          )}
+
+          {/* Herbalife / Preparation note */}
+          {product.isHerbalifeBased && (
+            <p className="text-[10px] text-[#708A90] italic leading-relaxed mb-3">
+              Elaborado con ingredientes selectos Herbalife y fruta fresca local.
+            </p>
+          )}
+
+          {/* Action to open full modal if user wants complete details */}
+          {onClick && (
+            <button
+              type="button"
+              onClick={handleOpenModal}
+              className="w-full text-center py-2 px-3 rounded-xl bg-[#17343A]/5 hover:bg-[#17343A]/10 text-xs font-bold text-[#17343A] transition-colors mt-1"
+            >
+              Ver ficha completa
+            </button>
+          )}
         </div>
+
+        {/* Minimal indicator text that shows 'Toca para ver detalles' or 'Cerrar' */}
+        <div className="mt-2 flex items-center justify-end text-[10px] font-bold text-[#E83C8B] uppercase tracking-wider">
+          <span className="inline-flex items-center gap-1">
+            <span>{isExpanded ? "Cerrar" : "Ver detalles"}</span>
+            <ChevronDown
+              className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                isExpanded ? "rotate-180" : ""
+              }`}
+            />
+          </span>
+        </div>
+
       </div>
     </div>
   );

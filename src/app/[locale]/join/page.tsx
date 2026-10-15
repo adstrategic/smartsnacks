@@ -79,7 +79,7 @@ export default function JoinPage() {
                   type="tel" 
                   id="phone" 
                   className="w-full bg-[#FDF9F3] border border-[#17343A]/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#55C5D5]"
-                  placeholder="(555) 123-4567"
+                  placeholder="(786) 554-7333"
                 />
               </div>
               <div>

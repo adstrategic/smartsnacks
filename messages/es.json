@@ -13,14 +13,14 @@
     "shopProducts": "Comprar Productos"
   },
   "BodyScannerCTA": {
-    "freeConsultation": "Consulta 100% Gratis",
-    "titleStart": "Empieza Tu Cambio con un ",
-    "titleHighlight": "Escáner Corporal",
-    "description": "Descubre tu punto de partida. Obtén un análisis completo de tu composición corporal, incluyendo porcentaje de grasa, masa muscular y edad metabólica—completamente gratis en nuestro club.",
-    "bullet1": "Evaluación de grasa corporal y masa muscular",
-    "bullet2": "Conoce tu edad metabólica",
-    "bullet3": "Metas personalizadas para tu estilo de vida",
-    "buttonText": "Agenda Tu Escáner Gratis",
+    "freeConsultation": "Promoción Especial • 100% Gratis",
+    "titleStart": "Ordena Tu Shake y Reclama Tu ",
+    "titleHighlight": "Escáner Corporal Gratis",
+    "description": "¡Disfruta tu shake favorito y llévate tu evaluación gratis! Obtén un análisis completo de tu composición corporal (porcentaje de grasa, masa muscular y edad metabólica) en solo 3 minutos en nuestro club.",
+    "bullet1": "Incluido gratis al ordenar tu shake o bebida favorita",
+    "bullet2": "Conoce tu grasa corporal, masa muscular y edad metabólica",
+    "bullet3": "Guía personalizada para alcanzar tu mejor versión",
+    "buttonText": "Ordena y Reclama Tu Escáner Gratis",
     "scannerActive": "ESCÁNER ACTIVO",
     "age": "Edad",
     "muscle": "Músculo",
@@ -53,5 +53,25 @@
     "p2": "Ya sea que vivas en Pembroke Pines o simplemente ames nuestra energía, regístrate para obtener beneficios de lealtad premium y mantente conectado con la familia Smart Snack.",
     "joinBtn": "Únete al Club",
     "badge": "Resultados Reales"
+  },
+  "MenuPromo": {
+    "badge": "¡PROMO EXCLUSIVA EN EL CLUB!",
+    "title": "Ordena tu Shake y Reclama tu Escáner Corporal Gratis",
+    "description": "Pide cualquiera de nuestros batidos de proteína con 24g+ o tu bebida favorita y recibe tu escáner corporal y análisis biométrico 100% gratis en nuestra tienda en Pembroke Pines.",
+    "cta": "Pedir y Reclamar Escáner Gratis"
+  },
+  "CommunityLifestyle": {
+    "sanctuaryTitle": "Tu Refugio Diario <br/> de Bienestar",
+    "sanctuaryDesc": "Entra en un espacio diseñado para que prosperes. Ya sea que vengas por un batido rápido después de entrenar, traigas tu laptop para trabajar mientras disfrutas de un té energizante, o te reúnas con amigos, nuestro club ofrece un ambiente cálido que se siente como en casa.",
+    "premiumFuelTitle": "Nutrición Premium",
+    "premiumFuelDesc": "Nuestros batidos de proteína están preparados para saber como tu postre favorito, brindando la nutrición de primera calidad que tu cuerpo necesita para recuperarse y crecer.",
+    "viewMenus": "Ver Menú",
+    "communityEventsTitle": "Eventos de la Comunidad",
+    "communityEventsDesc": "Únete a nuestras sesiones de ejercicio, retos de bienestar y encuentros comunitarios aquí mismo en Pembroke Pines.",
+    "joinClub": "Únete al Club",
+    "comboBadge": "Especial del Club",
+    "comboTitle": "Crea tu Combo",
+    "comboDesc": "Ven y crea tu combo favorito por un precio especial.",
+    "exploreMenu": "Explorar Menú"
   }
 }
