@@ -16,7 +16,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Organic Açaí Base", "Fresh Fruit Toppings", "Crunchy Granola", "Made Fresh"],
     isFeatured: true,
     isHerbalifeBased: false,
-    image: "/assets/images/realacai.jpeg",
+    image: "/assets/images/acaibowls.jpeg",
   },
   {
     id: "oatmeal-bowls",
@@ -127,21 +127,6 @@ export const PRODUCTS: Product[] = [
     isHerbalifeBased: true,
     image: "/assets/images/colage1.png",
   },
-  {
-    id: "pandebono-proteina",
-    name: "Pandebono de Proteína",
-    slug: "pandebono-proteina",
-    category: "waffles-snacks",
-    categoryLabel: "Protein Bakery",
-    shortDescription: "Traditional Colombian cheese bread, baked warm with high-grade protein.",
-    description: "Experience the authentic taste of Latin America with our healthy fitness twist! Warm, cheesy, and soft Pandebono baked with added protein.",
-    proteinAmount: "Protein Infused",
-    caloriesPlaceholder: "Warm Latin Treat",
-    highlights: ["Authentic Flavor", "Cheese Bread", "Protein Enriched", "Baked Fresh"],
-    isFeatured: true,
-    isHerbalifeBased: true,
-    image: "/assets/images/pandebono-proteina.jpeg",
-  },
 
   // ==========================================
   // 3. BATIDOS PROTEICOS (12 Recetas del Catálogo)
@@ -189,7 +174,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["French Vanilla", "Cookies & Cream", "Whipped Cream", "Ground Cinnamon"],
     isFeatured: false,
     isHerbalifeBased: true,
-    image: "/assets/images/real-shakes.jpeg",
+    image: "/assets/images/vanillabean.jpeg",
   },
   {
     id: "pumpkin-banana",
@@ -219,7 +204,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Strawberry Cheesecake", "Dulce de Leche", "Whipped Cream", "Festive Sprinkles"],
     isFeatured: true,
     isHerbalifeBased: true,
-    image: "/assets/images/straberry-cheesecake.jpeg",
+    image: "/assets/images/birthdaycake.jpeg",
   },
   {
     id: "churro",
@@ -234,7 +219,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Dulce de Leche", "Chai Spice", "Caramel Drizzle", "Cinnamon Toast Crunch"],
     isFeatured: true,
     isHerbalifeBased: true,
-    image: "/assets/images/brownie-shake.jpeg",
+    image: "/assets/images/churro.jpeg",
   },
   {
     id: "brownie-shake",
@@ -264,7 +249,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Mango Pineapple", "Strawberry Cheesecake", "Strawberry Sauce", "Fruity Pebbles"],
     isFeatured: false,
     isHerbalifeBased: true,
-    image: "/assets/images/tropical-pinaorange.jpeg",
+    image: "/assets/images/keywest.jpeg",
   },
   {
     id: "pistachio-shake",
@@ -309,7 +294,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Sweet Banana", "Peanut Cookie Base", "Caramel Sauce", "Granola"],
     isFeatured: false,
     isHerbalifeBased: true,
-    image: "/assets/images/pumpkinbanana-shake.jpeg",
+    image: "/assets/images/banananut.jpeg",
   },
   {
     id: "tropical-pina-orange",
@@ -390,7 +375,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Orange Liftoff", "Raspberry Tea", "Cranberry Aloe", "Vitamin C & Antioxidants"],
     isFeatured: true,
     isHerbalifeBased: true,
-    image: "/assets/images/passionfruit-megatea.jpeg",
+    image: "/assets/images/sexonthebeach.jpeg",
   },
   {
     id: "mega-tropic-like-its-hot",
@@ -405,7 +390,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Pineapple Fandango", "Tropical Fruit Liftoff", "Peach Tea", "Mango Aloe"],
     isFeatured: true,
     isHerbalifeBased: true,
-    image: "/assets/images/refreshner-drink.jpeg",
+    image: "/assets/images/tropic-like-its-hot.jpeg",
   },
   {
     id: "mega-smurfs-up",
@@ -420,7 +405,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Blue Blast", "Lemon Liftoff", "Lemon Tea", "Mango Aloe & Blueberry"],
     isFeatured: false,
     isHerbalifeBased: true,
-    image: "/assets/images/passionfruit-megatea.jpeg",
+    image: "/assets/images/smurfsup.jpeg",
   },
   {
     id: "mega-passion-fruit",
@@ -435,7 +420,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Passion Fruit", "Pineapple Push Liftoff", "Raspberry Tea", "Mango Aloe"],
     isFeatured: true,
     isHerbalifeBased: true,
-    image: "/assets/images/passionfruit-megatea.jpeg",
+    image: "/assets/images/passioonfruit.jpeg",
   },
   {
     id: "mega-mangorita",
@@ -450,7 +435,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Lemon Liftoff", "Peach Tea", "Mango Aloe", "Green Apple Crunch"],
     isFeatured: false,
     isHerbalifeBased: true,
-    image: "/assets/images/mangonada-tajin-chamoy.jpeg",
+    image: "/assets/images/mangorita.jpeg",
   },
   {
     id: "mega-watermelon-splash",
@@ -465,7 +450,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Pomegranate Liftoff", "Raspberry Tea", "Cranberry Aloe", "Watermelon Splash"],
     isFeatured: false,
     isHerbalifeBased: true,
-    image: "/assets/images/refreshner-drink.jpeg",
+    image: "/assets/images/watermelonsplash.jpeg",
   },
   {
     id: "mega-captain-america",
@@ -480,7 +465,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Blue Blast", "Pomegranate Liftoff", "Cranberry Aloe", "Rainbow Swirl"],
     isFeatured: false,
     isHerbalifeBased: true,
-    image: "/assets/images/passionfruit-megatea.jpeg",
+    image: "/assets/images/capitanamerica.jpeg",
   },
   {
     id: "mega-peach-please",
@@ -495,7 +480,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Peach Tea", "Tropical Liftoff", "Mango Aloe", "Natural Peach"],
     isFeatured: false,
     isHerbalifeBased: true,
-    image: "/assets/images/refreshner-drink.jpeg",
+    image: "/assets/images/peachplease.jpeg",
   },
   {
     id: "mega-coco-melon",
@@ -510,7 +495,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Coconut Apple", "Tropical Fruit Liftoff", "Mango Aloe", "Crisp Watermelon"],
     isFeatured: false,
     isHerbalifeBased: true,
-    image: "/assets/images/passionfruit-megatea.jpeg",
+    image: "/assets/images/cocomelon.jpeg",
   },
   {
     id: "mega-sunset-crush",
@@ -525,7 +510,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Orange Pineapple", "Tropical Liftoff", "Peach Tea", "Mango Aloe"],
     isFeatured: true,
     isHerbalifeBased: true,
-    image: "/assets/images/refreshner-drink.jpeg",
+    image: "/assets/images/sunsercrush.jpeg",
   },
 
   // ==========================================
@@ -608,7 +593,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Tea & Herbalife Aloe", "Pure Protein Infusion", "Liftoff Energy", "Beauty Collagen"],
     isFeatured: true,
     isHerbalifeBased: true,
-    image: "/assets/images/banner-separator-fuel.jpg",
+    image: "/assets/images/functionaldrinks.jpeg",
   },
 
   // ==========================================
