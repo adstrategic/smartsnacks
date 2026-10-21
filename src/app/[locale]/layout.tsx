@@ -103,7 +103,7 @@ export const metadata: Metadata = {
 };
 
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 
@@ -121,6 +121,7 @@ export default async function RootLayout(props: Readonly<{
   }
 
   const messages = await getMessages();
+  const tDisclaimer = await getTranslations({ locale, namespace: 'Disclaimer' });
 
   // GA Measurement ID (configurable via env, with official default fallback)
   const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-5PBFH9XSJT";
@@ -280,6 +281,13 @@ export default async function RootLayout(props: Readonly<{
                 </a>
               </div>
 
+            </div>
+
+            {/* Results Disclaimer (Muted / Difuminada) */}
+            <div className="pt-6 pb-6 border-t border-white/10">
+              <p className="text-[#EBF8FA]/35 text-[11px] leading-relaxed max-w-5xl font-light">
+                * {tDisclaimer('results')}
+              </p>
             </div>
 
             <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-[#EBF8FA]/60 text-[11px]">

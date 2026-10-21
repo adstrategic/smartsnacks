@@ -74,7 +74,7 @@ const MENU_CATEGORIES: MenuCategoryDef[] = [
     description: "Especialidades frías artesanales con chamoy y Tajín, horchata cremosa con canela y colección completa de tés calientes reconfortantes.",
     icon: Wine,
     accent: "#8B5CF6",
-    filterFn: (p) => p.category === "specialties" || p.category === "energy-teas",
+    filterFn: (p) => (p.category === "specialties" && p.id !== "suplementos" && p.id !== "add-ons" && p.id !== "suplementos-add-ons") || p.category === "energy-teas",
   },
   {
     id: "functional-addons",
@@ -83,7 +83,7 @@ const MENU_CATEGORIES: MenuCategoryDef[] = [
     description: "Bebidas listas para llevar y potenciadores a tu medida: Colágeno, Fibra, Probióticos, Liftoff, Niteworks, BCAAs, Pre-Workout y Prolessa Duo.",
     icon: PlusCircle,
     accent: "#06B6D4",
-    filterFn: (p) => p.category === "functional-drinks" || p.id === "suplementos-add-ons",
+    filterFn: (p) => p.category === "functional-drinks" || p.id === "suplementos" || p.id === "add-ons" || p.id === "suplementos-add-ons",
   },
 ];
 

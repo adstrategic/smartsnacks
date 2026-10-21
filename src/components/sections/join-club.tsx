@@ -6,6 +6,8 @@ import { ImageCarousel } from "@/components/ui/image-carousel";
 import { useTranslations } from 'next-intl';
 
 const CAMBI_IMAGES = [
+  "/assets/resutados/rnuevo.jpeg",
+  "/assets/resutados/rnuevo2.jpeg",
   "/assets/resutados/WhatsApp Image 2026-10-08 at 4.58.55 PM (1).jpeg",
   "/assets/resutados/WhatsApp Image 2026-10-08 at 4.58.55 PM (2).jpeg",
   "/assets/resutados/WhatsApp Image 2026-10-08 at 4.58.55 PM.jpeg",
@@ -22,6 +24,7 @@ const CAMBI_IMAGES = [
 
 export function JoinClubSection() {
   const t = useTranslations('JoinClub');
+  const tDisclaimer = useTranslations('Disclaimer');
   const fadeUp: any = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -46,6 +49,9 @@ export function JoinClubSection() {
               badgeText={t('badge')}
               aspectClassName="h-[480px] sm:h-[540px]"
             />
+            <p className="mt-4 text-[11px] leading-relaxed text-[#17343A]/45 italic font-light">
+              * {tDisclaimer('results')}
+            </p>
           </motion.div>
 
           <motion.div

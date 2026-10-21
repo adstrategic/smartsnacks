@@ -31,7 +31,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Heart-Healthy Oats", "Fresh Berries & Banana", "Cinnamon Infused", "Filling Fuel"],
     isFeatured: false,
     isHerbalifeBased: true,
-    image: "/assets/images/acaibowl-mujer.jpeg",
+    image: "/assets/images/soatmeal-bowls.png",
   },
   {
     id: "protein-waffles",
@@ -80,7 +80,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Fudgy Chocolate", "Guilt-Free Bakery", "Low Sugar", "Freshly Baked"],
     isFeatured: true,
     isHerbalifeBased: true,
-    image: "/assets/images/real2-wafle.jpeg",
+    image: "/assets/images/protein-brownies.png",
   },
   {
     id: "protein-cookies",
@@ -95,7 +95,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Soft-Baked", "Protein Packed", "Everyday Snack", "Clean Energy"],
     isFeatured: false,
     isHerbalifeBased: true,
-    image: "/assets/images/real1.jpeg",
+    image: "/assets/images/protein-cookies.png",
   },
   {
     id: "barra-proteica",
@@ -103,14 +103,14 @@ export const PRODUCTS: Product[] = [
     slug: "barra-proteica",
     category: "waffles-snacks",
     categoryLabel: "Packaged Snacks",
-    shortDescription: "Chewy, nutrient-dense on-the-go protein snack bar.",
-    description: "Convenient, delicious protein snack bar packed with vitamins and quality protein. Great for pre-workout or an afternoon work snack.",
-    proteinAmount: "Protein Snack",
-    caloriesPlaceholder: "On-the-Go",
-    highlights: ["Portable Energy", "Rich Chocolate or Vanilla", "Workout Snack", "Vitamin Packed"],
-    isFeatured: false,
+    shortDescription: "Deliciosa barra de proteína con cobertura de chocolate y textura crujiente. Práctica para llevar.",
+    description: "Snack práctico y delicioso para saciar antojos y mantener tu energía. Aporta 10g de proteína de alta calidad y 140 calorías, ideal para antes o después de entrenar o como merienda.",
+    proteinAmount: "10g Proteína",
+    caloriesPlaceholder: "140 Calorías",
+    highlights: ["10g de Proteína", "140 Calorías", "Vainilla Almendra", "Snack Práctico & Delicioso"],
+    isFeatured: true,
     isHerbalifeBased: true,
-    image: "/assets/images/colage1.png",
+    image: "/assets/images/barra-de-proteina.png",
   },
   {
     id: "herbalife-protein-chips",
@@ -125,7 +125,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Crispy & Savory", "Guilt-Free Crunch", "High Protein Snack", "Low Calorie"],
     isFeatured: false,
     isHerbalifeBased: true,
-    image: "/assets/images/colage1.png",
+    image: "/assets/images/chips.png",
   },
 
   // ==========================================
@@ -342,7 +342,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Rich Dark Cocoa", "Espresso Notes", "Regular Coffee", "VIP (37g Protein)"],
     isFeatured: false,
     isHerbalifeBased: true,
-    image: "/assets/images/carmel-frappe.jpeg",
+    image: "/assets/images/mocha.png",
   },
   {
     id: "coffee-caramel-macchiato",
@@ -357,7 +357,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Buttery Caramel", "Layered Espresso", "Regular Coffee", "VIP (37g Protein)"],
     isFeatured: true,
     isHerbalifeBased: true,
-    image: "/assets/images/carmel-frappe.jpeg",
+    image: "/assets/images/caramel-macchiato.png",
   },
 
   // ==========================================  // 5. MEGA TEA (24 cal | 0g Azúcar | 4g Carbs | Vit C)
@@ -559,7 +559,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["Traditional Spices", "Cinnamon & Vanilla", "Chilled Cold Drink", "Protein Infused"],
     isFeatured: true,
     isHerbalifeBased: true,
-    image: "/assets/images/real-shakes.jpeg",
+    image: "/assets/images/horchata.png",
   },
   {
     id: "hot-teas-collection",
@@ -600,19 +600,34 @@ export const PRODUCTS: Product[] = [
   // 8. SUPLEMENTOS Y AGREGADOS (Add-Ons)
   // ==========================================
   {
-    id: "suplementos-add-ons",
-    name: "Suplementos y Agregados (Add-Ons)",
+    id: "suplementos",
+    name: "Suplementos Nutricionales",
+    slug: "suplementos",
+    category: "specialties",
+    categoryLabel: "Nutrición & Suplementos",
+    shortDescription: "Pregunta en nuestro club por los suplementos disponibles en tienda o puedes ordenarlos directamente con el enlace de Join the Club.",
+    description: "Personaliza tu rutina diaria con nutrición específica y suplementos de alta calidad: Colágeno hidrolizado, Fibra activa, Probióticos digestivos, Niteworks, Complejo multivitamínico y Prolessa Duo. Pregunta en la tienda qué suplementos tenemos disponibles hoy o puedes ordenarlos online para entrega a domicilio mediante nuestro enlace de Join the Club.",
+    proteinAmount: "Nutrición Dirigida",
+    caloriesPlaceholder: "En Club & Online",
+    highlights: ["Preguntar Disponibilidad en Tienda", "Ordenar Online con Join the Club", "Colágeno, Fibra & Probióticos", "Vitaminas & Nutrición Especializada"],
+    isFeatured: true,
+    isHerbalifeBased: true,
+    image: "/assets/images/logo-round-smartsnack.jpg",
+  },
+  {
+    id: "add-ons",
+    name: "Agregados & Potenciadores (Add-Ons)",
     slug: "add-ons",
     category: "specialties",
     categoryLabel: "Boosters & Add-Ons",
-    shortDescription: "Custom boosts: Collagen, Fiber, Probiotic, Liftoff, Niteworks, BCAAs, Prolessa Duo, Immunity.",
-    description: "Supercharge any shake, tea, or bowl with targeted boosters! Options include: Collagen, Fiber, Probiotic, Liftoff, Niteworks, BCAA'S, Pre Workout, Prolessa Duo, Immunity Boost, Protein Juice, and Kids Vitamins.",
-    proteinAmount: "Targeted Nutrition",
-    caloriesPlaceholder: "Nutritional Boost",
-    highlights: ["Collagen & Fiber", "Probiotics & Immunity", "BCAAs & Pre-Workout", "Prolessa Duo"],
+    shortDescription: "Potencia tu batido o té con shots y boosters adicionales. Pregunta en la tienda cuáles tenemos disponibles hoy o pide en línea con Join the Club.",
+    description: "Lleva tu bebida al siguiente nivel agregando potenciadores funcionales a tu batido, té o bowl: Proteína extra, Liftoff energy fizz, Aloe vera concentrado, Boost de fibra o Probióticos. Pregunta en tienda qué agregados tenemos listos para ti o adquiere tus potenciadores favoritos con el link de Join the Club.",
+    proteinAmount: "Boosters Personalizados",
+    caloriesPlaceholder: "Para Batidos, Tés & Bowls",
+    highlights: ["Extra Proteína & BCAAs", "Liftoff Energy & Aloe Vera", "Preguntar Opciones en Tienda", "Ordenar con Join the Club"],
     isFeatured: true,
     isHerbalifeBased: true,
-    image: "/assets/images/banner-separator-fuel.jpg",
+    image: "/assets/images/logo-round-smartsnack.jpg",
   },
 ];
 

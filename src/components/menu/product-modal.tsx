@@ -158,12 +158,26 @@ export function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
                     <Button variant="outline" onClick={onClose} className="w-full sm:w-auto">
                       Close
                     </Button>
-                    <Button asChild variant="accent" className="w-full sm:w-auto">
-                      <Link href="/location" className="gap-2">
-                        <span>Order In-Club</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
-                    </Button>
+                    {(product.id === "suplementos" || product.id === "add-ons") ? (
+                      <Button asChild className="bg-[#E83C8B] hover:bg-[#d42d79] text-white font-bold w-full sm:w-auto">
+                        <a
+                          href="https://jairoguerrero.herbalife.com/es-us/u/loyalty-premium"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="gap-2"
+                        >
+                          <span>Ordenar con Join the Club</span>
+                          <span>↗</span>
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button asChild variant="accent" className="w-full sm:w-auto">
+                        <Link href="/location" className="gap-2">
+                          <span>Order In-Club</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      </Button>
+                    )}
                   </div>
                 </div>
 

@@ -163,6 +163,30 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
             </p>
           )}
 
+          {/* Special notice & Join the Club ordering for Suplementos & Add-ons */}
+          {(product.id === "suplementos" || product.id === "add-ons") && (
+            <div className="bg-[#EBF8FA] border border-[#55C5D5]/30 rounded-xl p-3 mb-3 text-left">
+              <p className="text-xs font-bold text-[#17343A] mb-1">
+                ¿Cómo ordenar estos productos?
+              </p>
+              <p className="text-[11px] text-[#3D585E] leading-relaxed mb-2.5">
+                Pregunta en nuestro club qué opciones tenemos disponibles en tienda hoy, o pide directamente online con nuestro enlace de Join the Club:
+              </p>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <a
+                  href="https://jairoguerrero.herbalife.com/es-us/u/loyalty-premium"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center justify-center gap-1.5 py-1.5 px-3 bg-[#E83C8B] hover:bg-[#d42d79] text-white text-[11px] font-bold rounded-lg shadow-sm transition-colors"
+                >
+                  <span>Pedir con Join the Club</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+          )}
+
           {/* Action to open full modal if user wants complete details */}
           {onClick && (
             <button
