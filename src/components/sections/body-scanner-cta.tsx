@@ -99,7 +99,7 @@ export function BodyScannerCTA() {
                 <div className="relative w-full h-full flex items-center justify-center mix-blend-screen select-none">
                   <img 
                     src="/assets/images/human_silhouette.jpg" 
-                    alt="Biometric Body Scanner Diagnostic" 
+                    alt="Body Scanner" 
                     className="w-full h-full max-h-[340px] object-contain filter drop-shadow-[0_0_18px_rgba(85,197,213,0.45)] opacity-95" 
                   />
                 </div>
